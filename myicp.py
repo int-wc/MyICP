@@ -84,7 +84,7 @@ def main():
     domains = get_domains_from_file(args.file)
 
     # 打开CSV文件准备写入结果
-    with open(args.output, mode='w', newline='', encoding='utf-8') as file:
+    with open(args.output, mode='w', newline='', encoding='utf-8-sig') as file:
         writer = csv.writer(file)
         writer.writerow(['Domain', 'Company Name', 'HTTP Response Time (s)', 'Parse Time (s)'])  # 写入CSV标题行
         
