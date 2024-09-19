@@ -47,7 +47,6 @@ def is_ip_address(domain):
 def parse_arguments():
     parser = argparse.ArgumentParser(description='从文件中提取域名并对icp.chinaz.com发起请求。')
     parser.add_argument('--user-agent', type=str, required=True, help='指定User-Agent')
-    parser.add_argument('--cookie', type=str, required=True, help='指定Cookie')
     parser.add_argument('--file', type=str, required=True, help='指定包含域名或路径的文件')
     parser.add_argument('--output', type=str, required=True, help='指定输出的CSV文件路径')
     return parser.parse_args()
@@ -61,7 +60,7 @@ def main():
     if not args.user_agent or not args.cookie:
         print('错误: 必须提供User-Agent和Cookie参数。')
         print('使用示例:')
-        print('python script.py --user-agent "your-user-agent" --cookie "your-cookie" --file target.txt --output output.csv')
+        print('python script.py --user-agent "your-user-agent" --file target.txt --output output.csv')
         return
 
     headers = {
@@ -71,7 +70,6 @@ def main():
         'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
         'Connection': 'keep-alive',
-        'Cookie': args.cookie,
         'Upgrade-Insecure-Requests': '1',
         'Sec-Fetch-Dest': 'document',
         'Sec-Fetch-Mode': 'navigate',
