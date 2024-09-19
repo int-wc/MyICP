@@ -57,8 +57,8 @@ def main():
     
     args = parse_arguments()
     
-    if not args.user_agent or not args.cookie:
-        print('错误: 必须提供User-Agent和Cookie参数。')
+    if not args.user_agent:
+        print('错误: 必须提供User-Agent')
         print('使用示例:')
         print('python script.py --user-agent "your-user-agent" --file target.txt --output output.csv')
         return
